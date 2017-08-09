@@ -1,0 +1,6 @@
+framework module Pods_UNITE_iOS_UNITE {
+  umbrella header "Pods-UNITE iOS-UNITE-umbrella.h"
+
+  export *
+  module * { export * }
+}
