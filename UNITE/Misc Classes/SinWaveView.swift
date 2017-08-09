@@ -65,7 +65,9 @@ class SineWaveView: UIView {
         let percent = xPos / width
         let position = path.point(at: percent)
         
-        point.center = position!
+        if let position = position {
+            point.center = position
+        }
         
         previousPercentWidth = percent
     }
