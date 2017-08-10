@@ -21,6 +21,24 @@ class AdminLoginViewController: UIViewController {
     
     
     @IBAction func loginAsAdmin(_ sender: UIButton) {
+        
+        if let username = usernameField.text {
+            if let password = passwordField.text {
+                
+                UNITERealm.user?.logOut()
+                
+                let credentials = SyncCredentials.usernamePassword(username: username, password: password)
+                
+                logInToRealm(with: credentials)
+                
+                
+                
+            } else {
+                // Display password error
+            }
+        } else {
+            // Display username error
+        }
     }
     // MARK: View Contorller Load
     
@@ -32,11 +50,28 @@ class AdminLoginViewController: UIViewController {
     
     }
     
+    // White status bar text
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    // Don't show in landscape for iPhone
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone { return .portrait }
+        return .landscape
+    }
+    
+    // Prefer portrait
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
+    
     // MARK: Setup UI
     
     func setupUI() {
         
-        
+        // Round view corners
+        adminLoginBtn.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
     }
     
     // MARK: Setup Gesture Recognizers

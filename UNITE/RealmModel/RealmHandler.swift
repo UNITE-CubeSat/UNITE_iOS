@@ -34,7 +34,7 @@ struct UNITERealm {
 // MARK: Connection
 
 
-func connectToRealm() {
+func logInToRealm(with userCredentials: SyncCredentials) {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
         
@@ -50,7 +50,7 @@ func connectToRealm() {
             
     })
     
-    SyncUser.logIn(with: UNITERealm.userCredentials, server: UNITERealm.realmObjectServerURL!, timeout: UNITERealm.serverTimeout, onCompletion: { user, error in
+    SyncUser.logIn(with: userCredentials, server: UNITERealm.realmObjectServerURL!, timeout: UNITERealm.serverTimeout, onCompletion: { user, error in
         if let user = user {
             
             DispatchQueue.main.async {
