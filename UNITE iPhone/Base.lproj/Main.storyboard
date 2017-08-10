@@ -1272,7 +1272,7 @@
         <!--Admin Login View Controller-->
         <scene sceneID="1PL-Oh-PcS">
             <objects>
-                <viewController id="Y15-U7-Kai" customClass="AdminLoginViewController" customModule="UNITE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminLogin" id="Y15-U7-Kai" customClass="AdminLoginViewController" customModule="UNITE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6n4-d6-bbb"/>
                         <viewControllerLayoutGuide type="bottom" id="S5E-kZ-SJz"/>
@@ -1321,11 +1321,11 @@
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVe-w4-5sw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sVe-w4-5sw">
                                 <rect key="frame" x="20" y="145" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="didBeginEnteringText:" destination="Y15-U7-Kai" eventType="editingDidBegin" id="xMv-Ls-WKM"/>
                                 </connections>
@@ -1343,7 +1343,7 @@
                                 <rect key="frame" x="20" y="220" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="didBeginEnteringText:" destination="Y15-U7-Kai" eventType="editingDidEnd" id="bDM-C4-Qs2"/>
                                 </connections>
@@ -1401,7 +1401,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adminLoginBtn" destination="A7h-s8-xev" id="WKZ-lg-kQV"/>
+                        <outlet property="adminLoginBtn" destination="A7h-s8-xev" id="3JZ-u3-0mL"/>
                         <outlet property="cancelLoginBtn" destination="Xnt-qx-E9I" id="IGm-jJ-x4D"/>
                         <outlet property="passwordField" destination="DzT-c7-ZIY" id="vgP-Jn-jYW"/>
                         <outlet property="usernameField" destination="sVe-w4-5sw" id="OZW-9R-nP5"/>
@@ -1436,11 +1436,25 @@
                                             <constraint firstAttribute="width" secondItem="1gM-rU-ONC" secondAttribute="height" multiplier="5:2" id="yNp-ap-kEi"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2S-a2-rCA">
+                                        <rect key="frame" x="35" y="37" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="GNv-fG-mUQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="rOo-y9-rhq"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="Admin"/>
+                                        <connections>
+                                            <action selector="presentLoginVC:" destination="A1F-wA-STY" eventType="touchUpInside" id="Rfu-Li-fFp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="FG9-nj-7n5"/>
+                                    <constraint firstItem="Q2S-a2-rCA" firstAttribute="leading" secondItem="LXg-SJ-g6J" secondAttribute="leading" constant="35" id="HUa-hO-Yom"/>
                                     <constraint firstAttribute="bottom" secondItem="1gM-rU-ONC" secondAttribute="bottom" constant="8" id="S76-jd-taV"/>
+                                    <constraint firstItem="1gM-rU-ONC" firstAttribute="leading" secondItem="Q2S-a2-rCA" secondAttribute="trailing" constant="45" id="XC5-0E-A4h"/>
+                                    <constraint firstItem="Q2S-a2-rCA" firstAttribute="centerY" secondItem="1gM-rU-ONC" secondAttribute="centerY" id="pvS-we-2B8"/>
                                     <constraint firstItem="1gM-rU-ONC" firstAttribute="centerX" secondItem="LXg-SJ-g6J" secondAttribute="centerX" id="rLy-qN-jUf"/>
                                 </constraints>
                             </view>
@@ -1798,6 +1812,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="YmD-TL-Q4N"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="adminLoginBtn" destination="Q2S-a2-rCA" id="l4D-Cb-vP3"/>
                         <outlet property="countdownBackView" destination="53x-NF-9YF" id="Ln6-ab-Wlm"/>
                         <outlet property="countdownTitleLbl" destination="8e7-o7-ATw" id="jOi-ot-skd"/>
                         <outlet property="daysCountLbl" destination="RzS-tP-2t2" id="Bzj-P6-unO"/>
@@ -2609,6 +2624,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Admin" width="21" height="21"/>
         <image name="Backsplash" width="612" height="612"/>
         <image name="Battery" width="21" height="21"/>
         <image name="Communication" width="21" height="21"/>

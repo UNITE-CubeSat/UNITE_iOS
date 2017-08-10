@@ -14,7 +14,9 @@ import RealmSwift
 
 class HomeViewController: UIViewController, UNITEVCProtocol {
     
+    // MARK: Outlets
     @IBOutlet weak var stackScrollView: UIScrollView!
+    @IBOutlet weak var adminLoginBtn: UIButton!
     
     // Main Widget Stack
     @IBOutlet var widgetStack: UIStackView!
@@ -139,10 +141,10 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
                         } else {
                             
                             // Show alert
-                            displayAlert(title: "Cannot Access Content", message: "Must be an admin user to open this link")
+                            present(AlertController.create(title: "Cannot Open Link", message: "Must be an admin user to open this link", action: "Ok"), animated: true, completion: nil)
                         }
                         
-                        displayAlert(title: "Logged Off", message: "Please login or check your internet connection")
+                        present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
                     }
                     
                     
@@ -200,12 +202,12 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
                             
                         } else {
                             
-                            displayAlert(title: "Cannot Access Content", message: "Must be an admin user to open this link")
+                            present(AlertController.create(title: "Cannot Open Link", message: "Must be an admin user to open this link", action: "Ok"), animated: true, completion: nil)
                         }
                         
                     } else {
                         
-                        displayAlert(title: "Logged Off", message: "Please login or check your internet connection")
+                        present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
                     }
                     
                 }
@@ -247,15 +249,18 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
         }
     }
     
-    func displayAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: { action in
-            alert.dismiss(animated: true, completion: nil)
-        })
+    @IBAction func presentLoginVC(_ sender: UIButton) {
         
-        alert.addAction(action)
-        
-        present(alert, animated: true, completion: nil)
+        if let user = UNITERealm.user {
+            if user.isAdmin {
+                let adminVC = storyboard?.instantiateViewController(withIdentifier: "AdminLogin") as! AdminLoginViewController
+                present(adminVC, animated: true, completion: nil)
+            } else {
+                present(AlertController.create(title: "Already Admin", message: "You are already signed in as an admin user", action: "Ok"), animated: true, completion: nil)
+            }
+        } else {
+            present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
+        }
     }
     
     // MARK: ViewController Load
@@ -309,9 +314,13 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
         editButtonView.addGestureRecognizer(editButtonTap)
     }
     
-    // MARK: Graphics Configuration
+    // MARK: Setup UI
     
     func setupUI() {
+        
+        adminLoginBtn.tintColor = UIColor.white
+        //adminLoginBtn.setBackgroundImage(#imageLiteral(resourceName: "Admin"), for: .normal)
+        
         countdownBackView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
 
         usiSpaceLinkView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
