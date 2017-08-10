@@ -29,9 +29,7 @@ class GPSViewController: UIViewController, UNITEVCProtocol {
     var latitude : String {
         return sinWaveView.getLatitude()
     }
-    
-    //@IBOutlet weak var mapView: MKMapView!
-    
+        
     // Google Maps Initializations
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?

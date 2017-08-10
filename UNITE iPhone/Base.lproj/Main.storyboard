@@ -71,12 +71,6 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qsW-D6-z8Y">
-                                        <rect key="frame" x="8" y="108" width="398" height="306"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="9pv-A4-QxB" id="kGj-6w-ceu"/>
-                                        </connections>
-                                    </mapView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yfi-pV-nui">
                                         <rect key="frame" x="116" y="422" width="182" height="29"/>
                                         <constraints>
@@ -128,32 +122,22 @@
                                     <constraint firstAttribute="trailing" secondItem="LLC-u4-Aun" secondAttribute="trailing" constant="8" id="FWt-vw-fQ8"/>
                                     <constraint firstItem="LLC-u4-Aun" firstAttribute="leading" secondItem="hWd-pX-ucW" secondAttribute="leading" constant="8" id="JFe-Ex-atf"/>
                                     <constraint firstItem="g2m-vv-e5e" firstAttribute="leading" secondItem="hWd-pX-ucW" secondAttribute="leading" constant="8" id="JJS-hW-LQE"/>
-                                    <constraint firstItem="qsW-D6-z8Y" firstAttribute="leading" secondItem="hWd-pX-ucW" secondAttribute="leading" constant="8" id="PBe-wK-vhG"/>
                                     <constraint firstAttribute="trailing" secondItem="85h-E1-UC9" secondAttribute="trailing" constant="8" id="Po2-pB-8k6"/>
                                     <constraint firstItem="85h-E1-UC9" firstAttribute="leading" secondItem="Yfi-pV-nui" secondAttribute="trailing" constant="8" id="TYB-VX-aDe"/>
-                                    <constraint firstItem="qsW-D6-z8Y" firstAttribute="top" secondItem="l1V-s1-uXT" secondAttribute="bottom" constant="8" id="YMh-M1-oMR"/>
-                                    <constraint firstItem="Yfi-pV-nui" firstAttribute="top" secondItem="qsW-D6-z8Y" secondAttribute="bottom" constant="8" id="aeJ-Gp-3TW"/>
                                     <constraint firstItem="Yfi-pV-nui" firstAttribute="centerX" secondItem="hWd-pX-ucW" secondAttribute="centerX" id="g4e-xf-1Vc"/>
                                     <constraint firstItem="LLC-u4-Aun" firstAttribute="top" secondItem="hWd-pX-ucW" secondAttribute="top" constant="8" id="iYv-NB-XZH"/>
                                     <constraint firstItem="l1V-s1-uXT" firstAttribute="top" secondItem="hWd-pX-ucW" secondAttribute="top" id="izq-Qt-W6a"/>
                                     <constraint firstItem="85h-E1-UC9" firstAttribute="top" secondItem="LLC-u4-Aun" secondAttribute="bottom" constant="8" id="kZ2-2C-0Zs"/>
                                     <constraint firstAttribute="bottom" secondItem="Yfi-pV-nui" secondAttribute="bottom" constant="8" id="lIx-fi-ThT"/>
-                                    <constraint firstItem="qsW-D6-z8Y" firstAttribute="top" secondItem="hWd-pX-ucW" secondAttribute="top" constant="8" id="onA-vf-2ks">
-                                        <variation key="heightClass=compact" constant="8"/>
-                                    </constraint>
-                                    <constraint firstAttribute="trailing" secondItem="qsW-D6-z8Y" secondAttribute="trailing" constant="8" id="sSR-pK-wCy"/>
                                     <constraint firstItem="l1V-s1-uXT" firstAttribute="leading" secondItem="hWd-pX-ucW" secondAttribute="leading" id="yt4-1x-Ari"/>
                                     <constraint firstItem="Yfi-pV-nui" firstAttribute="leading" secondItem="g2m-vv-e5e" secondAttribute="trailing" constant="8" id="z9j-DW-BGX"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="qsW-D6-z8Y"/>
                                         <exclude reference="g2m-vv-e5e"/>
                                         <exclude reference="85h-E1-UC9"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="YMh-M1-oMR"/>
-                                        <exclude reference="onA-vf-2ks"/>
                                         <exclude reference="iYv-NB-XZH"/>
                                         <exclude reference="z9j-DW-BGX"/>
                                         <exclude reference="2nC-Ee-enZ"/>
@@ -172,7 +156,6 @@
                                         <include reference="85h-E1-UC9"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="onA-vf-2ks"/>
                                         <exclude reference="CMX-HA-Htn"/>
                                         <exclude reference="izq-Qt-W6a"/>
                                         <exclude reference="yt4-1x-Ari"/>
@@ -186,11 +169,6 @@
                                         <include reference="Po2-pB-8k6"/>
                                         <include reference="TYB-VX-aDe"/>
                                         <include reference="kZ2-2C-0Zs"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="YMh-M1-oMR"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -612,7 +590,6 @@
                         <outlet property="latView" destination="4yA-u1-sf3" id="IYq-AQ-FML"/>
                         <outlet property="longValueLbl" destination="GfV-Q8-5lz" id="Cpd-U1-5Ch"/>
                         <outlet property="longView" destination="YdN-Zl-J75" id="28q-DS-BbX"/>
-                        <outlet property="mapView" destination="qsW-D6-z8Y" id="uFe-xE-Tzk"/>
                         <outlet property="minLbl" destination="9hG-Yc-ABO" id="5do-36-dMp"/>
                         <outlet property="secLbl" destination="2Sf-F2-UTx" id="zNZ-ec-MEz"/>
                         <outlet property="sinGraphView" destination="LLC-u4-Aun" id="fne-fW-3rh"/>

@@ -1192,12 +1192,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJO-CY-hHo" userLabel="DisplayView">
                                 <rect key="frame" x="341" y="100" width="683" height="619"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SHA-ks-EEM">
-                                        <rect key="frame" x="8" y="108" width="398" height="306"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="EVa-Ex-Mgh" id="AyF-zo-QG0"/>
-                                        </connections>
-                                    </mapView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qn0-Sp-1HD">
                                         <rect key="frame" x="250.5" y="583" width="182" height="29"/>
                                         <constraints>
@@ -1242,29 +1236,22 @@
                                 <constraints>
                                     <constraint firstItem="Qn0-Sp-1HD" firstAttribute="leading" secondItem="01P-0D-kpf" secondAttribute="trailing" constant="8" id="8ls-JK-CaT"/>
                                     <constraint firstAttribute="trailing" secondItem="0Y2-Pu-MQw" secondAttribute="trailing" constant="8" id="F5E-5T-QNg"/>
-                                    <constraint firstAttribute="trailing" secondItem="SHA-ks-EEM" secondAttribute="trailing" constant="8" id="Re8-y3-2ip"/>
                                     <constraint firstAttribute="bottom" secondItem="01P-0D-kpf" secondAttribute="bottom" constant="8" id="Rzv-jS-JA1"/>
                                     <constraint firstAttribute="bottom" secondItem="Qn0-Sp-1HD" secondAttribute="bottom" constant="8" id="Sex-Ha-Tx0"/>
-                                    <constraint firstItem="Qn0-Sp-1HD" firstAttribute="top" secondItem="SHA-ks-EEM" secondAttribute="bottom" constant="8" id="TuB-91-q5L"/>
                                     <constraint firstAttribute="bottom" secondItem="QNp-4v-Xv3" secondAttribute="bottom" constant="8" id="Wef-pQ-XlR"/>
                                     <constraint firstItem="0Y2-Pu-MQw" firstAttribute="top" secondItem="hJO-CY-hHo" secondAttribute="top" constant="8" id="Yg8-X6-bxc"/>
                                     <constraint firstItem="01P-0D-kpf" firstAttribute="top" secondItem="0Y2-Pu-MQw" secondAttribute="bottom" constant="8" id="bMW-y5-0Na"/>
                                     <constraint firstItem="QNp-4v-Xv3" firstAttribute="top" secondItem="0Y2-Pu-MQw" secondAttribute="bottom" constant="8" id="dmM-sz-fyf"/>
                                     <constraint firstItem="Qn0-Sp-1HD" firstAttribute="centerX" secondItem="hJO-CY-hHo" secondAttribute="centerX" id="fMy-x5-kxk"/>
-                                    <constraint firstItem="SHA-ks-EEM" firstAttribute="top" secondItem="hJO-CY-hHo" secondAttribute="top" constant="8" id="h9t-uh-fZC">
-                                        <variation key="heightClass=compact" constant="8"/>
-                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="QNp-4v-Xv3" secondAttribute="trailing" constant="8" id="mEu-bR-g7G"/>
                                     <constraint firstItem="0Y2-Pu-MQw" firstAttribute="leading" secondItem="hJO-CY-hHo" secondAttribute="leading" constant="8" id="nwk-38-P7d"/>
                                     <constraint firstItem="01P-0D-kpf" firstAttribute="leading" secondItem="hJO-CY-hHo" secondAttribute="leading" constant="8" id="pVB-Ns-0jd"/>
                                     <constraint firstItem="QNp-4v-Xv3" firstAttribute="leading" secondItem="Qn0-Sp-1HD" secondAttribute="trailing" constant="8" id="uGn-mD-6cO"/>
                                     <constraint firstItem="Qn0-Sp-1HD" firstAttribute="top" secondItem="0Y2-Pu-MQw" secondAttribute="bottom" constant="8" id="vo8-px-GI0"/>
                                     <constraint firstItem="0Y2-Pu-MQw" firstAttribute="top" secondItem="hJO-CY-hHo" secondAttribute="top" constant="8" id="y9i-Wh-FkT"/>
-                                    <constraint firstItem="SHA-ks-EEM" firstAttribute="leading" secondItem="hJO-CY-hHo" secondAttribute="leading" constant="8" id="zBJ-S0-dIC"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="SHA-ks-EEM"/>
                                         <exclude reference="01P-0D-kpf"/>
                                         <exclude reference="QNp-4v-Xv3"/>
                                     </mask>
@@ -1272,7 +1259,6 @@
                                         <exclude reference="Rzv-jS-JA1"/>
                                         <exclude reference="bMW-y5-0Na"/>
                                         <exclude reference="pVB-Ns-0jd"/>
-                                        <exclude reference="h9t-uh-fZC"/>
                                         <exclude reference="Wef-pQ-XlR"/>
                                         <exclude reference="dmM-sz-fyf"/>
                                         <exclude reference="mEu-bR-g7G"/>
@@ -1290,7 +1276,6 @@
                                         <include reference="Rzv-jS-JA1"/>
                                         <include reference="bMW-y5-0Na"/>
                                         <include reference="pVB-Ns-0jd"/>
-                                        <include reference="h9t-uh-fZC"/>
                                         <include reference="Wef-pQ-XlR"/>
                                         <include reference="dmM-sz-fyf"/>
                                         <include reference="mEu-bR-g7G"/>
@@ -1709,7 +1694,6 @@
                         <outlet property="latView" destination="Vwc-4p-E66" id="Tug-4S-kuR"/>
                         <outlet property="longValueLbl" destination="Tyh-dC-HWl" id="l8E-Wh-beN"/>
                         <outlet property="longView" destination="mvH-B7-GOh" id="eul-dC-Vrd"/>
-                        <outlet property="mapView" destination="SHA-ks-EEM" id="uIw-Lk-HYt"/>
                         <outlet property="minLbl" destination="3ca-Cf-7ow" id="tQS-A3-wHp"/>
                         <outlet property="secLbl" destination="SSN-T0-3Eh" id="8pr-tW-CjZ"/>
                         <outlet property="secondInnerStack" destination="WN4-8r-yPP" id="DhA-ho-ARW"/>
