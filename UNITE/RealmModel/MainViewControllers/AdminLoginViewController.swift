@@ -31,7 +31,13 @@ class AdminLoginViewController: UIViewController {
                 
                 logInToRealm(with: credentials)
                 
-                
+                if UNITERealm.user == nil {
+                    present(AlertController.create(title: "Login Failed", message: "Username or Password was incorrect", action: "Dismiss"), animated: true, completion: nil)
+                } else {
+                    present(AlertController.create(title: "Login Succesful", message: "You are now logged in as an admin user", action: "Continue"), animated: true, completion: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                }
                 
             } else {
                 // Display password error

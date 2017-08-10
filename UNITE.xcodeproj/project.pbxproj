@@ -111,6 +111,7 @@
 		17B63CB71EA5D69000B6EF02 /* realm_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B63CB61EA5D69000B6EF02 /* realm_logo.png */; };
 		17B63CB91EA5D70E00B6EF02 /* world_map.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 17B63CB81EA5D70E00B6EF02 /* world_map.JPG */; };
 		17BDE97B1F3BE8F000E7DB84 /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17899D5B1F3A6CD0002F675B /* AdminLoginViewController.swift */; };
+		17BDE97D1F3BF4D600E7DB84 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BDE97C1F3BF4D600E7DB84 /* AlertController.swift */; };
 		17CE2D4D1E48D4A600542ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CE2D4C1E48D4A600542ED9 /* Assets.xcassets */; };
 		17CE2D751E49394700542ED9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE2D741E49394700542ED9 /* MainTabBarController.swift */; };
 		17F5B4FC1ECCED58009AD187 /* Pods_UNITE_Desktop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5B4FB1ECCED58009AD187 /* Pods_UNITE_Desktop.framework */; };
@@ -240,6 +241,7 @@
 		17B63CB41EA5966600B6EF02 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		17B63CB61EA5D69000B6EF02 /* realm_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = realm_logo.png; sourceTree = "<group>"; };
 		17B63CB81EA5D70E00B6EF02 /* world_map.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_map.JPG; sourceTree = "<group>"; };
+		17BDE97C1F3BF4D600E7DB84 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		17CE2D401E48D4A600542ED9 /* UNITE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNITE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CE2D4C1E48D4A600542ED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CE2D561E48D4A600542ED9 /* UNITETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UNITETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				17B63CB41EA5966600B6EF02 /* MapView.swift */,
+				17BDE97C1F3BF4D600E7DB84 /* AlertController.swift */,
 				176FF5791EA6BB8C00902C90 /* SinWaveView.swift */,
 			);
 			path = "Misc Classes";
@@ -1217,6 +1220,7 @@
 				17B0A9431EC2384D00C6A2D7 /* CommDataSet.swift in Sources */,
 				1771274A1E7BA64A0006DB3C /* HousekeepingModel.swift in Sources */,
 				173A0B621E4959A40098E453 /* AppConfig.swift in Sources */,
+				17BDE97D1F3BF4D600E7DB84 /* AlertController.swift in Sources */,
 				173160CA1E4FB06200F54081 /* GPSWidget.swift in Sources */,
 				17B0A9411EC1823600C6A2D7 /* DataCommViewController.swift in Sources */,
 				17B63CB51EA5966600B6EF02 /* MapView.swift in Sources */,
