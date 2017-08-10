@@ -28,7 +28,7 @@ struct UNITERealm {
     // The main thread instance of current synced realm
     static var activeRealm : Realm!
     
-    static let serverTimeout = 10.0
+    static let serverTimeout = 5.0
 }
 
 // MARK: Connection

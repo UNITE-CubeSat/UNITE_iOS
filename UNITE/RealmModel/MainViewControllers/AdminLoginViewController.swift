@@ -37,7 +37,8 @@ class AdminLoginViewController: UIViewController {
                 UNITERealm.user?.logOut()
                 UNITERealm.user = nil
                 
-                let credentials = SyncCredentials.usernamePassword(username: username, password: password)
+                let credentials = SyncCredentials.usernamePassword(username: username.replacingOccurrences(of: " ", with: ""),
+                                                                   password: password.replacingOccurrences(of: " ", with: ""))
                 
                 loginToRealm(with: credentials)
                 
@@ -117,6 +118,7 @@ class AdminLoginViewController: UIViewController {
     }
     
     func waitForLoginToComplete() {
+        
         // Blur View
         let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         blurView.frame = view.bounds
@@ -132,14 +134,13 @@ class AdminLoginViewController: UIViewController {
         
         loadingView.startAnimating()
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10.0) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + UNITERealm.serverTimeout) {
             loadingView.stopAnimating()
             loadingView.removeFromSuperview()
             blurView.removeFromSuperview()
             
             self.testLoginSuccess()
         }
-        
     }
     
     func testLoginSuccess() {
@@ -148,9 +149,8 @@ class AdminLoginViewController: UIViewController {
             let loginSuccessfulAlert = UIAlertController(title: "Login Succesful", message: "You are now logged in as an admin user", preferredStyle: .actionSheet)
             let continueAction = UIAlertAction(title: "Continue", style: .default, handler: {
                 action in
-                loginSuccessfulAlert.dismiss(animated: true, completion: {
-                    self.dismiss(animated: true, completion: nil)
-                })
+                loginSuccessfulAlert.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             })
             
             loginSuccessfulAlert.addAction(continueAction)
@@ -158,6 +158,7 @@ class AdminLoginViewController: UIViewController {
             present(loginSuccessfulAlert, animated: true, completion: nil)
             
         } else {
+            
             displayEntryError(for: usernameField)
             displayEntryError(for: passwordField)
             
