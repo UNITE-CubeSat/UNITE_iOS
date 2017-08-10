@@ -1345,7 +1345,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
-                                    <action selector="didBeginEnteringText:" destination="Y15-U7-Kai" eventType="editingDidEnd" id="bDM-C4-Qs2"/>
+                                    <action selector="didBeginEnteringText:" destination="Y15-U7-Kai" eventType="editingDidBegin" id="Mc9-YX-bMO"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7h-s8-xev">

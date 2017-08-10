@@ -27,8 +27,8 @@ class AdminLoginViewController: UIViewController {
     
     @IBAction func loginAsAdmin(_ sender: UIButton) {
         
-        if let username = usernameField.text {
-            if let password = passwordField.text {
+        if let username = usernameField.text, !username.isEmpty {
+            if let password = passwordField.text, !password.isEmpty {
                 
                 UNITERealm.user?.logOut()
                 
@@ -36,7 +36,7 @@ class AdminLoginViewController: UIViewController {
                 
                 loginToRealm(with: credentials)
                 
-                if UNITERealm.user == nil {
+                if let user = UNITERealm.user, !user.isAdmin {
                     
                     displayEntryError(for: usernameField)
                     displayEntryError(for: passwordField)
@@ -44,16 +44,21 @@ class AdminLoginViewController: UIViewController {
                     present(AlertController.create(title: "Login Failed", message: "Username or Password was incorrect", action: "Dismiss"), animated: true, completion: nil)
                 } else {
                     present(AlertController.create(title: "Login Succesful", message: "You are now logged in as an admin user", action: "Continue"), animated: true, completion: {
-                        self.dismiss(animated: true, completion: nil)
                     })
+                    
+                    dismiss(animated: true, completion: nil)
                 }
                 
             } else {
                 // Display password error
+                passwordField.resignFirstResponder()
+                passwordField.placeholder = "Please enter a password"
                 displayEntryError(for: passwordField)
             }
         } else {
             // Display username error
+            usernameField.resignFirstResponder()
+            usernameField.placeholder = "Please enter a username"
             displayEntryError(for: usernameField)
         }
     }
@@ -104,12 +109,31 @@ class AdminLoginViewController: UIViewController {
     // MARK: Setup Gesture Recognizers
     
     func setupGestureRecognizers() {
-        
+        usernameField.delegate = self
+        usernameField.returnKeyType = .next
+    
+        passwordField.delegate = self
+        passwordField.returnKeyType = .go
     }
     
     // MARK: Login Functions
     
     func displayEntryError(for textField: UITextField) {
-        textField.backgroundColor = FlatRed().withAlphaComponent(0.5)
+        textField.backgroundColor = FlatRed()
+    }
+}
+
+extension AdminLoginViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField.returnKeyType == .next {
+            passwordField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            loginAsAdmin(adminLoginBtn)
+        }
+        
+        return false
     }
 }
