@@ -63,6 +63,11 @@
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
+		<key>KDLoadingView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
 		<key>NGSPopoverView-NGSPopoverView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -363,6 +368,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>65561A6DADCB39060B395F4B1641B8ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>65723B078190396B0409156767B51504</key>
 		<dict>
 			<key>primary</key>
@@ -623,6 +633,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E20303113125269CAA56A76DB7C1279A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E228BD08CB2232B04296326A7894712C</key>
 		<dict>
 			<key>primary</key>
@@ -709,6 +724,11 @@
 			<true/>
 		</dict>
 		<key>FDADF8748D7ED2F215214D4B06C34519</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FFC7D262D3C2645833B93DC5520F2FEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

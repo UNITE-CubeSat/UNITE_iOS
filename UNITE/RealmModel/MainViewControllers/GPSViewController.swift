@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import MapKit
 import ChameleonFramework
-import GoogleMaps
 
 class GPSViewController: UIViewController, UNITEVCProtocol {
     
@@ -36,7 +35,6 @@ class GPSViewController: UIViewController, UNITEVCProtocol {
     // Google Maps Initializations
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    var mapView: GMSMapView!
     var zoomLevel: Float = 12.0
     
     // Statellite Time
@@ -106,7 +104,6 @@ class GPSViewController: UIViewController, UNITEVCProtocol {
         
         // Corner Radius
         sinGraphView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
-        mapView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
         timeView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
         latView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
         longView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
@@ -171,25 +168,6 @@ class GPSViewController: UIViewController, UNITEVCProtocol {
 
     
     func configureMapView() {
-        // Google Maps
-//        let camera = GMSCameraPosition.camera(withLatitude: 0.0,
-//                                              longitude: 0.0,
-//                                              zoom: zoomLevel)
-//        mapView = GMSMapView.map(withFrame: sinGraphView.frame, camera: camera)
-//        mapView.settings.myLocationButton = false
-//        mapView.settings.scrollGestures = true
-//        mapView.settings.zoomGestures = true
-//        mapView.settings.tiltGestures = false
-//        mapView.settings.rotateGestures = false
-//        mapView.translatesAutoresizingMaskIntoConstraints = false
-
-        //view.addSubview(mapView)
-        
-        //mapView.leadingAnchor.constraint(equalTo: sinGraphView.leadingAnchor).isActive = true
-        //mapView.trailingAnchor.constraint(equalTo: sinGraphView.trailingAnchor).isActive = true
-        //mapView.topAnchor.constraint(equalTo: sinGraphView.topAnchor).isActive = true
-        //mapView.bottomAnchor.constraint(equalTo: sinGraphView.bottomAnchor).isActive = true
-        
         
         // Pan image
         let isCompact = traitCollection.verticalSizeClass == .compact

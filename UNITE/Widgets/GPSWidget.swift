@@ -9,11 +9,10 @@
 import Foundation
 import ChameleonFramework
 import MapKit
-import GoogleMaps
 
 class GPSWidget: WidgetView {
     
-    var map : GMSMapView!
+    var map : MapView!
     let zoom : Float = 5.0
     let accuracy : Double = 1000.0
     
@@ -33,16 +32,7 @@ class GPSWidget: WidgetView {
     
     private func setupMap() {
         
-        map = GMSMapView()
-        
-        // Map Configuration
-        map.settings.myLocationButton = true
-        map.settings.scrollGestures = true
-        map.settings.zoomGestures = true
-        map.settings.tiltGestures = false
-        map.settings.rotateGestures = false
-        map.isMyLocationEnabled = true
-        
+        map = MapView(boundingView: contentView, isCompact: traitCollection.verticalSizeClass == .compact)
         map.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(map)
@@ -85,25 +75,7 @@ extension GPSWidget : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-                
-        if let userLocation = manager.location {
-            
-            
-            
-            let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude,
-                                                  longitude: userLocation.coordinate.longitude,
-                                                  zoom: zoom)
-            
-            if map.isHidden == true {
-                map.camera = camera
-                map.isHidden = false
-            } else {
-                map.animate(to: camera)
-            }
-            
-        } else {
-            print("Hasn't acquired location yet")
-        }
+  
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

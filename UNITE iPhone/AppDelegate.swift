@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         loginToRealm(with: UNITERealm.userCredentials)
-        
-        GMSServices.provideAPIKey(AppConfig.GOOGLE_MAPS_KEY_IPHONE)
-        
+                
         return true
     }
 

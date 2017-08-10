@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import KDLoadingView
 
 class AdminLoginViewController: UIViewController {
 
@@ -30,26 +31,17 @@ class AdminLoginViewController: UIViewController {
         if let username = usernameField.text, !username.isEmpty {
             if let password = passwordField.text, !password.isEmpty {
                 
+                usernameField.resignFirstResponder()
+                passwordField.resignFirstResponder()
+                
                 UNITERealm.user?.logOut()
+                UNITERealm.user = nil
                 
                 let credentials = SyncCredentials.usernamePassword(username: username, password: password)
                 
                 loginToRealm(with: credentials)
                 
-                
-                
-                if let user = UNITERealm.user, !user.isAdmin {
-                    
-                    displayEntryError(for: usernameField)
-                    displayEntryError(for: passwordField)
-                    
-                    present(AlertController.create(title: "Login Failed", message: "Username or Password was incorrect", action: "Dismiss"), animated: true, completion: nil)
-                } else {
-                    present(AlertController.create(title: "Login Succesful", message: "You are now logged in as an admin user", action: "Continue"), animated: true, completion: {
-                    })
-                    
-                    dismiss(animated: true, completion: nil)
-                }
+                waitForLoginToComplete()
                 
             } else {
                 // Display password error
@@ -122,6 +114,57 @@ class AdminLoginViewController: UIViewController {
     
     func displayEntryError(for textField: UITextField) {
         textField.backgroundColor = FlatRed()
+    }
+    
+    func waitForLoginToComplete() {
+        // Blur View
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        blurView.frame = view.bounds
+        
+        // Loading View Animation
+        let loadingViewRect = CGRect(x: 0.0, y: 0.0, width: 75.0, height: 75.0)
+        let loadingView = KDLoadingView(frame: loadingViewRect, lineWidth: 2.0, firstColor: FlatRed(), secondColor: UIColor.white, thirdColor: FlatNavyBlueDark(), duration: CGFloat(UNITERealm.serverTimeout) / 3.0)
+        
+        loadingView.center = view.center
+        
+        view.addSubview(blurView)
+        view.addSubview(loadingView)
+        
+        loadingView.startAnimating()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10.0) {
+            loadingView.stopAnimating()
+            loadingView.removeFromSuperview()
+            blurView.removeFromSuperview()
+            
+            self.testLoginSuccess()
+        }
+        
+    }
+    
+    func testLoginSuccess() {
+        
+        if let user = UNITERealm.user, user.isAdmin {
+            let loginSuccessfulAlert = UIAlertController(title: "Login Succesful", message: "You are now logged in as an admin user", preferredStyle: .actionSheet)
+            let continueAction = UIAlertAction(title: "Continue", style: .default, handler: {
+                action in
+                loginSuccessfulAlert.dismiss(animated: true, completion: {
+                    self.dismiss(animated: true, completion: nil)
+                })
+            })
+            
+            loginSuccessfulAlert.addAction(continueAction)
+            
+            present(loginSuccessfulAlert, animated: true, completion: nil)
+            
+        } else {
+            displayEntryError(for: usernameField)
+            displayEntryError(for: passwordField)
+            
+            present(AlertController.create(title: "Login Failed", message: "Username or Password was incorrect", action: "Dismiss"), animated: true, completion: nil)
+            
+            
+        }
     }
 }
 
