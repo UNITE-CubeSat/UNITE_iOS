@@ -252,7 +252,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
     @IBAction func presentLoginVC(_ sender: UIButton) {
         
         if let user = UNITERealm.user {
-            if user.isAdmin {
+            if !user.isAdmin {
                 let adminVC = storyboard?.instantiateViewController(withIdentifier: "AdminLogin") as! AdminLoginViewController
                 present(adminVC, animated: true, completion: nil)
             } else {
@@ -319,7 +319,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
     func setupUI() {
         
         adminLoginBtn.tintColor = UIColor.white
-        //adminLoginBtn.setBackgroundImage(#imageLiteral(resourceName: "Admin"), for: .normal)
+        adminLoginBtn.setBackgroundImage(adminLoginBtn.currentBackgroundImage?.withRenderingMode(.alwaysTemplate), for: .normal)
         
         countdownBackView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
 
