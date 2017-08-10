@@ -18,6 +18,7 @@ class AdminLoginViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var adminLoginBtn: UIButton!
+    @IBOutlet weak var cancelLoginBtn: UIButton!
     
     @IBAction func didBeginEnteringText(_ sender: UITextField) {
         
@@ -33,7 +34,7 @@ class AdminLoginViewController: UIViewController {
                 
                 let credentials = SyncCredentials.usernamePassword(username: username, password: password)
                 
-                logInToRealm(with: credentials)
+                loginToRealm(with: credentials)
                 
                 if UNITERealm.user == nil {
                     
@@ -56,6 +57,15 @@ class AdminLoginViewController: UIViewController {
             displayEntryError(for: usernameField)
         }
     }
+    
+    @IBAction func cancelAdminLogin(_ sender: UIButton) {
+        
+        loginToRealm(with: UNITERealm.userCredentials)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     // MARK: View Contorller Load
     
     override func viewDidLoad() {
@@ -88,6 +98,7 @@ class AdminLoginViewController: UIViewController {
         
         // Round view corners
         adminLoginBtn.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
+        cancelLoginBtn.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
     }
     
     // MARK: Setup Gesture Recognizers

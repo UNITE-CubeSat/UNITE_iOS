@@ -34,7 +34,7 @@ struct UNITERealm {
 // MARK: Connection
 
 
-func logInToRealm(with userCredentials: SyncCredentials) {
+func loginToRealm(with userCredentials: SyncCredentials) {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
         

@@ -1359,6 +1359,17 @@
                                     <action selector="loginAsAdmin:" destination="Y15-U7-Kai" eventType="touchUpInside" id="WTX-Bi-Hhm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnt-qx-E9I">
+                                <rect key="frame" x="20" y="326" width="374" height="36"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelAdminLogin:" destination="Y15-U7-Kai" eventType="touchUpInside" id="ju0-1f-Qn6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1376,18 +1387,22 @@
                             <constraint firstAttribute="trailingMargin" secondItem="3Ut-r9-FK5" secondAttribute="trailing" id="Rk1-aH-ueR"/>
                             <constraint firstItem="3Ut-r9-FK5" firstAttribute="leading" secondItem="4yN-uR-rWP" secondAttribute="leadingMargin" id="SYu-ng-OHL"/>
                             <constraint firstItem="vGu-BT-iJC" firstAttribute="leading" secondItem="4yN-uR-rWP" secondAttribute="leadingMargin" id="eLS-mU-M5d"/>
+                            <constraint firstItem="Xnt-qx-E9I" firstAttribute="leading" secondItem="4yN-uR-rWP" secondAttribute="leadingMargin" id="fkF-bG-fPi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A7h-s8-xev" secondAttribute="trailing" id="gTk-66-v1B"/>
                             <constraint firstItem="AZQ-SL-y4h" firstAttribute="top" secondItem="4yN-uR-rWP" secondAttribute="top" id="gql-kH-hT9"/>
+                            <constraint firstItem="Xnt-qx-E9I" firstAttribute="top" secondItem="A7h-s8-xev" secondAttribute="bottom" constant="20" id="i0H-Jk-DuO"/>
                             <constraint firstItem="sVe-w4-5sw" firstAttribute="leading" secondItem="4yN-uR-rWP" secondAttribute="leadingMargin" id="jQv-B8-woG"/>
                             <constraint firstItem="S5E-kZ-SJz" firstAttribute="top" secondItem="9K9-Sp-Ca1" secondAttribute="bottom" id="mTb-9L-cju"/>
                             <constraint firstItem="AZQ-SL-y4h" firstAttribute="leading" secondItem="4yN-uR-rWP" secondAttribute="leading" id="oOh-km-pex"/>
                             <constraint firstItem="sVe-w4-5sw" firstAttribute="top" secondItem="3Ut-r9-FK5" secondAttribute="bottom" constant="10" id="rOb-Ej-gue"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xnt-qx-E9I" secondAttribute="trailing" id="sal-6q-0iQ"/>
                             <constraint firstItem="DzT-c7-ZIY" firstAttribute="trailing" secondItem="4yN-uR-rWP" secondAttribute="trailingMargin" id="wBw-yU-AzY"/>
                             <constraint firstAttribute="trailing" secondItem="AZQ-SL-y4h" secondAttribute="trailing" id="zea-g0-tN5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adminLoginBtn" destination="A7h-s8-xev" id="WKZ-lg-kQV"/>
+                        <outlet property="cancelLoginBtn" destination="Xnt-qx-E9I" id="IGm-jJ-x4D"/>
                         <outlet property="passwordField" destination="DzT-c7-ZIY" id="vgP-Jn-jYW"/>
                         <outlet property="usernameField" destination="sVe-w4-5sw" id="OZW-9R-nP5"/>
                     </connections>
