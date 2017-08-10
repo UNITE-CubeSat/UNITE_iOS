@@ -19,6 +19,10 @@ class AdminLoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var adminLoginBtn: UIButton!
     
+    @IBAction func didBeginEnteringText(_ sender: UITextField) {
+        
+        sender.backgroundColor = UIColor.white
+    }
     
     @IBAction func loginAsAdmin(_ sender: UIButton) {
         
@@ -32,6 +36,10 @@ class AdminLoginViewController: UIViewController {
                 logInToRealm(with: credentials)
                 
                 if UNITERealm.user == nil {
+                    
+                    displayEntryError(for: usernameField)
+                    displayEntryError(for: passwordField)
+                    
                     present(AlertController.create(title: "Login Failed", message: "Username or Password was incorrect", action: "Dismiss"), animated: true, completion: nil)
                 } else {
                     present(AlertController.create(title: "Login Succesful", message: "You are now logged in as an admin user", action: "Continue"), animated: true, completion: {
@@ -41,9 +49,11 @@ class AdminLoginViewController: UIViewController {
                 
             } else {
                 // Display password error
+                displayEntryError(for: passwordField)
             }
         } else {
             // Display username error
+            displayEntryError(for: usernameField)
         }
     }
     // MARK: View Contorller Load
@@ -84,5 +94,11 @@ class AdminLoginViewController: UIViewController {
     
     func setupGestureRecognizers() {
         
+    }
+    
+    // MARK: Login Functions
+    
+    func displayEntryError(for textField: UITextField) {
+        textField.backgroundColor = FlatRed().withAlphaComponent(0.5)
     }
 }
