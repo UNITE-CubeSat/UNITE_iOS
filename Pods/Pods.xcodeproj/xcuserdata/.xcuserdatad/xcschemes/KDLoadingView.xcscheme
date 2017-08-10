@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '65561A6DADCB39060B395F4B1641B8ED'
-               BlueprintName = 'Pods-UNITE iOS-UNITE iPad'
+               BlueprintIdentifier = 'E20303113125269CAA56A76DB7C1279A'
+               BlueprintName = 'KDLoadingView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-UNITE iOS-UNITE iPad.framework'>
+               BuildableName = 'KDLoadingView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -36,6 +36,8 @@ class AdminLoginViewController: UIViewController {
                 
                 loginToRealm(with: credentials)
                 
+                
+                
                 if let user = UNITERealm.user, !user.isAdmin {
                     
                     displayEntryError(for: usernameField)

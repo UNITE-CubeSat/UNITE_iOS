@@ -27,13 +27,13 @@ project 'UNITE.xcodeproj'
     platform :ios, '10.0'
     # Pods for UNITE
     #pod 'Parse'
-  
+    pod 'KDLoadingView'
     pod 'ChameleonFramework/Swift'
     pod 'MXParallaxHeader'
     pod 'NGSPopoverView'
   
     # Pods for data parsing and charting
-    pod 'GoogleMaps'
+    #pod 'GoogleMaps'
   
     target 'UNITE' do 
     end
