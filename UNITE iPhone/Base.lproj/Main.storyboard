@@ -1269,10 +1269,10 @@
             </objects>
             <point key="canvasLocation" x="749" y="-1306"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Login View Controller-->
         <scene sceneID="1PL-Oh-PcS">
             <objects>
-                <viewController id="Y15-U7-Kai" sceneMemberID="viewController">
+                <viewController id="Y15-U7-Kai" customClass="AdminLoginViewController" customModule="UNITE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6n4-d6-bbb"/>
                         <viewControllerLayoutGuide type="bottom" id="S5E-kZ-SJz"/>
@@ -1349,6 +1349,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginAsAdmin:" destination="Y15-U7-Kai" eventType="touchUpInside" id="WTX-Bi-Hhm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1377,6 +1380,11 @@
                             <constraint firstAttribute="trailing" secondItem="AZQ-SL-y4h" secondAttribute="trailing" id="zea-g0-tN5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adminLoginBtn" destination="A7h-s8-xev" id="WKZ-lg-kQV"/>
+                        <outlet property="passwordField" destination="DzT-c7-ZIY" id="vgP-Jn-jYW"/>
+                        <outlet property="usernameField" destination="sVe-w4-5sw" id="OZW-9R-nP5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6w1-Um-BUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

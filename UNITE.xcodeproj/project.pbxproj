@@ -110,6 +110,7 @@
 		17B63CB51EA5966600B6EF02 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B63CB41EA5966600B6EF02 /* MapView.swift */; };
 		17B63CB71EA5D69000B6EF02 /* realm_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B63CB61EA5D69000B6EF02 /* realm_logo.png */; };
 		17B63CB91EA5D70E00B6EF02 /* world_map.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 17B63CB81EA5D70E00B6EF02 /* world_map.JPG */; };
+		17BDE97B1F3BE8F000E7DB84 /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17899D5B1F3A6CD0002F675B /* AdminLoginViewController.swift */; };
 		17CE2D4D1E48D4A600542ED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CE2D4C1E48D4A600542ED9 /* Assets.xcassets */; };
 		17CE2D751E49394700542ED9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE2D741E49394700542ED9 /* MainTabBarController.swift */; };
 		17F5B4FC1ECCED58009AD187 /* Pods_UNITE_Desktop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F5B4FB1ECCED58009AD187 /* Pods_UNITE_Desktop.framework */; };
@@ -1142,6 +1143,7 @@
 				178880131ECA40C0002D8D74 /* TemperatureModel.swift in Sources */,
 				1788800E1ECA40B1002D8D74 /* TemperatureViewController.swift in Sources */,
 				178880171ECA40D2002D8D74 /* MainTabBarController.swift in Sources */,
+				17BDE97B1F3BE8F000E7DB84 /* AdminLoginViewController.swift in Sources */,
 				178880121ECA40BE002D8D74 /* HousekeepingModel.swift in Sources */,
 				1788801A1ECA40DD002D8D74 /* WidgetView.swift in Sources */,
 				1788801D1ECA40EC002D8D74 /* MapView.swift in Sources */,

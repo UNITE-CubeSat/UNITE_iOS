@@ -13,6 +13,15 @@ import ChameleonFramework
 
 class AdminLoginViewController: UIViewController {
 
+    // MARK: Outlets
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var adminLoginBtn: UIButton!
+    
+    
+    @IBAction func loginAsAdmin(_ sender: UIButton) {
+    }
     // MARK: View Contorller Load
     
     override func viewDidLoad() {
@@ -26,6 +35,7 @@ class AdminLoginViewController: UIViewController {
     // MARK: Setup UI
     
     func setupUI() {
+        
         
     }
     
