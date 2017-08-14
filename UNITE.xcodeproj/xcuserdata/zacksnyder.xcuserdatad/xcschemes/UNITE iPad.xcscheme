@@ -52,9 +52,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17887FEF1ECA3EC2002D8D74"
-               BuildableName = "UNITE iPadUITests.xctest"
-               BlueprintName = "UNITE iPadUITests"
+               BlueprintIdentifier = "17887FE41ECA3EC2002D8D74"
+               BuildableName = "UNITE iPadTests.xctest"
+               BlueprintName = "UNITE iPadTests"
                ReferencedContainer = "container:UNITE.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -62,9 +62,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17887FE41ECA3EC2002D8D74"
-               BuildableName = "UNITE iPadTests.xctest"
-               BlueprintName = "UNITE iPadTests"
+               BlueprintIdentifier = "17887FEF1ECA3EC2002D8D74"
+               BuildableName = "UNITE iPadUITests.xctest"
+               BlueprintName = "UNITE iPadUITests"
                ReferencedContainer = "container:UNITE.xcodeproj">
             </BuildableReference>
          </TestableReference>
