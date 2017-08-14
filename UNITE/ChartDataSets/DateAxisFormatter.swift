@@ -12,7 +12,7 @@ import Charts
 #if os (iOS)
 class DateAxisFormatter: UIViewController, IAxisValueFormatter {
     
-    let DATE_FORMAT_STRING = "MM/dd/yy"
+    let DATE_FORMAT_STRING = "MM/dd"
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         
