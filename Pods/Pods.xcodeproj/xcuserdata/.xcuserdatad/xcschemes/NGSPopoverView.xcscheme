@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '566B1E3883580FE7C1398836C5CCA208'
+               BlueprintIdentifier = '6CF25C97CDACA76DE950B42662706492'
                BlueprintName = 'NGSPopoverView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'NGSPopoverView.framework'>

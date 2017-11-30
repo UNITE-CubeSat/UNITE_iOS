@@ -90,16 +90,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BezierPathLength-OSX/BezierPathLength.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Charts-OSX/Charts.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ChartsRealm-OSX/ChartsRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Hue-OSX/Hue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm-OSX/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-OSX/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BezierPathLength-OSX/BezierPathLength.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Charts-OSX/Charts.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ChartsRealm-OSX/ChartsRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Hue-OSX/Hue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm-OSX/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-OSX/RealmSwift.framework"

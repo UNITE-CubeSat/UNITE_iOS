@@ -7,14 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, NGSPopoverArrowPosition)
+typedef NS_ENUM(NSInteger, NGSPopoverArrowDirection)
 {
-    NGSPopoverArrowPositionAutomatic,
-    NGSPopoverArrowPositionBottom,
-    NGSPopoverArrowPositionLeft,
-    NGSPopoverArrowPositionTop,
-    NGSPopoverArrowPositionRight,
-    NGSPopoverArrowPositionCount
+    NGSPopoverArrowDirectionAutomatic,
+    NGSPopoverArrowDirectionBottom,
+    NGSPopoverArrowDirectionLeft,
+    NGSPopoverArrowDirectionTop,
+    NGSPopoverArrowDirectionRight,
+    NGSPopoverArrowDirectionCount
 };
 
 @class NGSPopoverView;
@@ -40,7 +40,7 @@ IB_DESIGNABLE
 /*!
  * @brief Arrow direction to draw - left, right, top or bottom
  */
-@property (nonatomic, assign) IBInspectable NGSPopoverArrowPosition arrowDirection;
+@property (nonatomic, assign) IBInspectable NGSPopoverArrowDirection arrowDirection;
 
 /*!
  * @brief Arrow size in dimensions. How it will look like depends on arow direction.
@@ -86,14 +86,20 @@ IB_DESIGNABLE
 @property (nonatomic, assign) NSTimeInterval minShowTimeInterval;
 
 /*!
+ * @brief Tint Color around popover
+ * @note Default value is Black with 50% transparancy.
+ */
+@property (nonatomic, strong) UIColor *outsideColor;
+
+/*!
  * @brief Use setContentView: method to assign content view.
  * @param cornerRadius Rounded corner radius in CGFloat value. Can be 0.
  * @param arrowDirection Direction of arrow - left, right, top or bottom.
  * @param arrowSize Arrow dimensions in CGSize. If not square, look differs for vertical and horizontal arrow.
  */
--(instancetype)initWithCornerRadius:(CGFloat)corner
-                          direction:(NGSPopoverArrowPosition)direction
-                          arrowSize:(CGSize)arrSize;
+-(instancetype)initWithCornerRadius:(CGFloat)cornerRadius
+                          direction:(NGSPopoverArrowDirection)arrowDirection
+                          arrowSize:(CGSize)arrowSize;
 /*!
  * @brief Don't add content view manually! This method adds it with automatic position calculation according to arrow size and position.
  * @param view View to make popover's content view.

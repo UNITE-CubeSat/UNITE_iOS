@@ -8,12 +8,10 @@ project 'UNITE.xcodeproj'
   use_frameworks!
 
   #UI Pods
-  pod 'Hue', '~> 2.0'
+  pod 'Hue'
   
   # Pods for data parsing and charting
   pod 'RealmSwift'
-  pod 'Charts'
-  pod 'ChartsRealm'
   pod 'BezierPathLength'
 
   target 'UNITE Desktop' do 
@@ -27,6 +25,7 @@ project 'UNITE.xcodeproj'
     platform :ios, '10.0'
     # Pods for UNITE
     #pod 'Parse'
+    pod 'ScrollableGraphView', '~> 4.0'
     pod 'KDLoadingView'
     pod 'ChameleonFramework/Swift'
     pod 'MXParallaxHeader'

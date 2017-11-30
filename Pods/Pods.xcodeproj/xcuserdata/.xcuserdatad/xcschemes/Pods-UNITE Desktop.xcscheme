@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '55D052D7516DECE25CD9A1D503BF1CC9'
+               BlueprintIdentifier = 'D77828339A54859D416AA1E4D20BC4E0'
                BlueprintName = 'Pods-UNITE Desktop'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-UNITE Desktop.framework'>

@@ -90,8 +90,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BezierPathLength-iOS/BezierPathLength.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Charts-iOS/Charts.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ChartsRealm-iOS/ChartsRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Hue-iOS/Hue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS/RealmSwift.framework"
@@ -99,11 +97,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/KDLoadingView/KDLoadingView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NGSPopoverView/NGSPopoverView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BezierPathLength-iOS/BezierPathLength.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Charts-iOS/Charts.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ChartsRealm-iOS/ChartsRealm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Hue-iOS/Hue.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm-iOS/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift-iOS/RealmSwift.framework"
@@ -111,6 +108,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/KDLoadingView/KDLoadingView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NGSPopoverView/NGSPopoverView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

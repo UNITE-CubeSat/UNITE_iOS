@@ -19,26 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Charts-OSX.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Charts-iOS.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ChartsRealm-OSX.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ChartsRealm-iOS.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Hue-OSX.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -55,11 +35,6 @@
 			<false/>
 		</dict>
 		<key>MXParallaxHeader.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>NGSPopoverView-NGSPopoverView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -100,6 +75,11 @@
 			<false/>
 		</dict>
 		<key>RealmSwift-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ScrollableGraphView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
