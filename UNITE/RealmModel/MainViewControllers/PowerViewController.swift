@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-import Charts
+import ScrollableGraphView
 import ChameleonFramework
 
 class PowerViewController: UIViewController, UNITEVCProtocol {
@@ -26,7 +26,7 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     @IBOutlet weak var currentView: UIView!
     @IBOutlet weak var chargeView: UIView!
     
-    @IBOutlet weak var graphView: UIView!
+    @IBOutlet weak var graphView: ScrollableGraphView!
     
     @IBOutlet weak var powerPageControl: UIPageControl!
     
@@ -38,10 +38,6 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     @IBOutlet weak var outerStack: UIStackView!
     @IBOutlet weak var firstInnerStack: UIStackView!
     @IBOutlet weak var secondInnerStack: UIStackView!
-    
-    // Chart
-    var powerChart = LineChartView()
-    var powerData = LineChartData()
     
     // Sensor Selection
     var selectedPanels = [UILabel]()
@@ -109,7 +105,7 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setupPowerChart()
+        setupPowerGraph()
 
         if UIDevice.current.userInterfaceIdiom == .pad {
             transitionToiPadSizeClass(landscape: view.frame.width > view.frame.height,
@@ -131,7 +127,7 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     
     deinit {
         if token != nil {
-            token.stop()
+            token.invalidate()
         }
     }
     
@@ -192,7 +188,7 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
         panel.textColor = FlatWhite()
         selectedPanels.append(panel)
         
-        updateChartData()
+        graphView.reload()
         updateAverages()
     }
     
@@ -202,62 +198,14 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
 
         if let index = selectedPanels.index(of: panel) { selectedPanels.remove(at: index) }
         
-        updateChartData()
+        graphView.reload()
         updateAverages()
     }
     
     // MARK: Power Chart Setup
     
-    func setupPowerChart() {
-        powerChart.delegate = self
-        powerChart.xAxis.valueFormatter = DateAxisFormatter()
-        powerChart.frame = CGRect(origin: CGPoint.zero, size: graphView.bounds.size)
-        powerChart.noDataText = AppConfig.Chart.NO_DATA_TEXT
-        powerChart.noDataFont = AppConfig.Chart.NO_DATA_FONT
-        powerChart.noDataTextColor = AppConfig.Chart.CHART_TEXT_COLOR
+    func setupPowerGraph() {
         
-        powerChart.borderLineWidth = 5.0
-        powerChart.pinchZoomEnabled = false
-        powerChart.drawGridBackgroundEnabled = false
-        powerChart.highlightPerTapEnabled = false
-        powerChart.highlightPerDragEnabled = false
-        
-        
-        powerChart.chartDescription = AppConfig.Chart.chartDescription(text: "")
-        
-        powerData.setValueTextColor(AppConfig.Chart.CHART_TEXT_COLOR)
-        
-        graphView.addSubview(powerChart)
-    }
-    
-    func updateChartData() {
-        
-        powerData.clearValues()
-        
-        if !selectedPanels.isEmpty && UNITERealm.activeRealm != nil {
-            
-            for index in 1...selectedPanels.count {
-                
-                let temperatureResults = UNITERealm.activeRealm.objects(Temperature.self).filter(NSPredicate(format: "id == %@", selectedPanels[index-1].text!))
-                let sensorDataSet = TemperatureDataSet(color: chartColors[(index-1) % chartColors.count])
-                sensorDataSet.label = selectedPanels[index-1].text!
-                
-                // Generate entries for each sensor
-                for entry in temperatureResults {
-                    let newEntry = ChartDataEntry(x: entry.date.timeIntervalSince1970, y: entry.value)
-                    sensorDataSet.addEntryOrdered(newEntry)
-                }
-                
-                // Add data set to LineChartData object
-                if sensorDataSet.entryCount > 0 {
-                    powerData.addDataSet(sensorDataSet)
-                }
-            }
-        }
-        
-        // Clear chart if nothing is selected
-        if powerData.dataSets.isEmpty { powerChart.clear() }
-        else { powerChart.data = powerData }
     }
     
     // Updates Average Labels
@@ -266,26 +214,6 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
         var avgLoPower = [Double]()
         var avgPower = [Double]()
         var avgHiPower = [Double]()
-        
-        if !powerData.dataSets.isEmpty {
-            for dataSet in powerData.dataSets {
-                
-                if dataSet.entryCount > 0 {
-                    
-                    var powers = [Double]()
-                    
-                    // Gets temp data from each data set and stores in temps
-                    for i in 0..<dataSet.entryCount {
-                        let entry = dataSet.entryForIndex(i)!
-                        powers.append(entry.y)
-                    }
-                    
-                    avgLoPower.append(powers.min()!)
-                    avgPower.append(AppConfig.DataManagement().average(array: powers))
-                    avgHiPower.append(powers.max()!)
-                }
-            }
-        }
         
         
         if !avgLoPower.isEmpty {
@@ -363,6 +291,23 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     }
 }
 
+extension PowerViewController : ScrollableGraphViewDataSource {
+   
+    
+    func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
+        return 0.0
+    }
+    
+    func label(atIndex pointIndex: Int) -> String {
+        return ""
+    }
+    
+    func numberOfPoints() -> Int {
+        return 0
+    }
+    
+}
+
 // MARK: Realm Handler
 extension PowerViewController {
     
@@ -370,10 +315,9 @@ extension PowerViewController {
         DispatchQueue.main.async {
             
             if let realm = UNITERealm.activeRealm {
-                self.token = realm.addNotificationBlock({ _,_ in
-                    self.updateChartData()
-                    self.updateAverages()
-                })
+                self.token = realm.observe { (_,_) in
+
+                }
             }
         }
     }
@@ -386,5 +330,3 @@ extension PowerViewController : UIScrollViewDelegate {
         powerPageControl.currentPage = Int(round(scrollView.contentOffset.x/view.bounds.width))
     }
 }
-
-extension PowerViewController : ChartViewDelegate {}

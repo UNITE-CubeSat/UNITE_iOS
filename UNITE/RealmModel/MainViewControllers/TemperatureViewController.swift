@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import ChameleonFramework
-import Charts
+import ScrollableGraphView
 import RealmSwift
 
 class TemperatureViewController: UIViewController, UNITEVCProtocol {
@@ -36,7 +36,7 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     @IBOutlet weak var tempDisplayPageControl: UIPageControl!
     
     // Display Views
-    @IBOutlet weak var graphView: UIView!
+    @IBOutlet weak var graphView: ScrollableGraphView!
     @IBOutlet weak var averagesView: UIView!
     
     // Average Labels
@@ -56,10 +56,6 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     
     // MARK: Instance Variables
     
-    // Chart View and Data
-    var tempChart = LineChartView()
-    var tempData = LineChartData()
-    
     // Sensor Selection
     var selectedSensors = [UILabel]()
     var chartColors = [FlatRed(), FlatBlue(), FlatGreen(), FlatYellow(), FlatPlum(), FlatOrange()]
@@ -73,7 +69,7 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     
     // MARK: Gesture Handlers
     
-    func didTapTempPanel(tap: UILongPressGestureRecognizer) {
+    @objc func didTapTempPanel(tap: UILongPressGestureRecognizer) {
         
         switch tap.state {
         case .began:
@@ -178,7 +174,7 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setupTempChart()
+        setupTempGraph()
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             transitionToiPadSizeClass(landscape: view.frame.width > view.frame.height,
@@ -200,7 +196,7 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     
     deinit {
         if token != nil {
-            token.stop()
+            token.invalidate()
         }
     }
     
@@ -301,103 +297,83 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
     
     // MARK: Temperature Chart Setup
     
-    func setupTempChart() {
-        tempChart.delegate = self
-        tempChart.xAxis.valueFormatter = DateAxisFormatter()
-        tempChart.frame = CGRect(origin: CGPoint.zero, size: graphView.bounds.size)
-        tempChart.noDataText = AppConfig.Chart.NO_DATA_TEXT
-        tempChart.noDataFont = AppConfig.Chart.NO_DATA_FONT
-        tempChart.noDataTextColor = AppConfig.Chart.CHART_TEXT_COLOR
-        
-        tempChart.borderLineWidth = 5.0
-        tempChart.pinchZoomEnabled = false
-        tempChart.drawGridBackgroundEnabled = false
-        tempChart.highlightPerTapEnabled = false
-        tempChart.highlightPerDragEnabled = false
-
-
-        tempChart.chartDescription = AppConfig.Chart.chartDescription(text: "")
-        
-        tempData.setValueTextColor(AppConfig.Chart.CHART_TEXT_COLOR)
-        
-        graphView.addSubview(tempChart)
+    func setupTempGraph() {
+//        tempChart.delegate = self
+//        tempChart.xAxis.valueFormatter = DateAxisFormatter()
+//        tempChart.frame = CGRect(origin: CGPoint.zero, size: graphView.bounds.size)
+//        tempChart.noDataText = AppConfig.Chart.NO_DATA_TEXT
+//        tempChart.noDataFont = AppConfig.Chart.NO_DATA_FONT
+//        tempChart.noDataTextColor = AppConfig.Chart.CHART_TEXT_COLOR
+//
+//        tempChart.borderLineWidth = 5.0
+//        tempChart.pinchZoomEnabled = false
+//        tempChart.drawGridBackgroundEnabled = false
+//        tempChart.highlightPerTapEnabled = false
+//        tempChart.highlightPerDragEnabled = false
+//
+//
+//        tempChart.chartDescription = AppConfig.Chart.chartDescription(text: "")
+//
+//        tempData.setValueTextColor(AppConfig.Chart.CHART_TEXT_COLOR)
+//
+//        graphView.addSubview(tempChart)
     }
     
     func updateChartData() {
         
-        tempData.clearValues()
-        
-        if !selectedSensors.isEmpty && UNITERealm.activeRealm != nil {
-            
-            for index in 1...selectedSensors.count {
-                
-                let temperatureResults = UNITERealm.activeRealm.objects(Temperature.self).filter(NSPredicate(format: "id == %@", selectedSensors[index-1].text!))
-                let sensorDataSet = TemperatureDataSet(color: chartColors[(index-1) % chartColors.count])
-                sensorDataSet.label = selectedSensors[index-1].text!
-                
-                // Generate entries for each sensor
-                for entry in temperatureResults {
-                    let newEntry = ChartDataEntry(x: entry.date.timeIntervalSince1970, y: entry.value)
-                    sensorDataSet.addEntryOrdered(newEntry)
-                }
-                
-                // Add data set to LineChartData object
-                if sensorDataSet.entryCount > 0 {
-                    tempData.addDataSet(sensorDataSet)
-                }
-            }
-        }
-        
-        // Clear chart if nothing is selected
-        if tempData.dataSets.isEmpty { tempChart.clear() }
-        else { tempChart.data = tempData }
+//        tempData.clearValues()
+//
+//        if !selectedSensors.isEmpty && UNITERealm.activeRealm != nil {
+//
+//            for index in 1...selectedSensors.count {
+//
+//                let temperatureResults = UNITERealm.activeRealm.objects(Temperature.self).filter(NSPredicate(format: "id == %@", selectedSensors[index-1].text!))
+//                let sensorDataSet = TemperatureDataSet(color: chartColors[(index-1) % chartColors.count])
+//                sensorDataSet.label = selectedSensors[index-1].text!
+//
+//                // Generate entries for each sensor
+//                for entry in temperatureResults {
+//                    let newEntry = ChartDataEntry(x: entry.date.timeIntervalSince1970, y: entry.value)
+//                    sensorDataSet.addEntryOrdered(newEntry)
+//                }
+//
+//                // Add data set to LineChartData object
+//                if sensorDataSet.entryCount > 0 {
+//                    tempData.addDataSet(sensorDataSet)
+//                }
+//            }
+//        }
+//
+//        // Clear chart if nothing is selected
+//        if tempData.dataSets.isEmpty { tempChart.clear() }
+//        else { tempChart.data = tempData }
     }
     
     // Updates Average Labels
     func updateAverages() {
         
-        var avgLoTemps = [Double]()
-        var avgTemps = [Double]()
-        var avgHiTemps = [Double]()
-        
-        if !tempData.dataSets.isEmpty {
-            for dataSet in tempData.dataSets {
-                
-                if dataSet.entryCount > 0 {
-                    
-                    var temps = [Double]()
-                    
-                    // Gets temp data from each data set and stores in temps
-                    for i in 0..<dataSet.entryCount {
-                        let entry = dataSet.entryForIndex(i)!
-                        temps.append(entry.y)
-                    }
-                    
-                    avgLoTemps.append(temps.min()!)
-                    avgTemps.append(AppConfig.DataManagement().average(array: temps))
-                    avgHiTemps.append(temps.max()!)
-                }
-            }
-        }
-        
-        
-        if !avgLoTemps.isEmpty {
-            loTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgLoTemps))
-        } else {
-            loTempLbl.text = "— —"
-        }
-        
-        if !avgTemps.isEmpty {
-            avgTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgTemps))
-        } else {
-            avgTempLbl.text = "— —"
-        }
-        
-        if !avgHiTemps.isEmpty {
-            hiTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgHiTemps))
-        } else {
-            hiTempLbl.text = "— —"
-        }
+//        var avgLoTemps = [Double]()
+//        var avgTemps = [Double]()
+//        var avgHiTemps = [Double]()
+//
+//
+//        if !avgLoTemps.isEmpty {
+//            loTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgLoTemps))
+//        } else {
+//            loTempLbl.text = "— —"
+//        }
+//
+//        if !avgTemps.isEmpty {
+//            avgTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgTemps))
+//        } else {
+//            avgTempLbl.text = "— —"
+//        }
+//
+//        if !avgHiTemps.isEmpty {
+//            hiTempLbl.text = String(format: "%.1f°", AppConfig.DataManagement().average(array: avgHiTemps))
+//        } else {
+//            hiTempLbl.text = "— —"
+//        }
     }
     
     func select(panel: UILabel) {
@@ -470,12 +446,26 @@ class TemperatureViewController: UIViewController, UNITEVCProtocol {
         coordinator.animate(alongsideTransition: { _ in
             
             // Add any custom transition code in this block
-            if self.graphView != nil { self.tempChart.frame = CGRect(origin: CGPoint.zero, size: self.graphView.bounds.size) }
             
         }, completion: nil)
     }
     
     
+}
+
+extension TemperatureViewController : ScrollableGraphViewDataSource {
+    
+    func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
+        return 0.0
+    }
+    
+    func label(atIndex pointIndex: Int) -> String {
+        return ""
+    }
+    
+    func numberOfPoints() -> Int {
+        return 0
+    }
 }
 
 
@@ -486,10 +476,9 @@ extension TemperatureViewController {
         DispatchQueue.main.async {
         
             if let realm = UNITERealm.activeRealm {
-                self.token = realm.addNotificationBlock({ _,_ in
-                    self.updateChartData()
-                    self.updateAverages()
-                })
+                self.token = realm.observe { (_,_) in
+
+                }
             }
         }
     }
@@ -504,7 +493,4 @@ extension TemperatureViewController : UIScrollViewDelegate {
     }
 }
 
-extension TemperatureViewController : ChartViewDelegate {
-    
-    
-}
+

@@ -12,12 +12,12 @@ import UIKit
 import ChameleonFramework
 #endif
 import MapKit
-import Charts
+import ScrollableGraphView
 
 struct AppConfig {
     
     static let UNITE_START_DATE = Date(fromString: "2016-08-23")
-    static let UNITE_END_DATE = Date(fromString: "2017-11-17")
+    static let UNITE_END_DATE = Date(fromString: "2018-05-03")
     
     static let locManager = CLLocationManager()
 
@@ -54,22 +54,14 @@ struct AppConfig {
         }
     }
     
-    struct Chart {
+    struct Graph {
         #if os (iOS)
-        static let NO_DATA_FONT = UIFont(name: "HelveticaNeue-Light", size: 25.0)
-        static let CHART_TEXT_COLOR = FlatNavyBlueDark()
-        
-        static func chartDescription(text: String) -> Description {
-            let chartDesc = Description()
-            chartDesc.font = AppConfig.Chart.NO_DATA_FONT!
-            chartDesc.textColor = AppConfig.Chart.CHART_TEXT_COLOR
-            chartDesc.text = text
-            return chartDesc
-        }
+        static let headerFont = UIFont(name: "HelveticaNeue-Light", size: 25.0)
+        static let textColor = FlatNavyBlueDark()
         #endif
         
-        static let NO_DATA_TEXT = "Please Select A Sensor"
-        static let VALUE_FONT = NSUIFont(name: "HelveticaNeue-Light", size: 11.0)
+        static let noDataText = "Please Select A Sensor"
+        static let dataFont = UIFont(name: "HelveticaNeue-Light", size: 11.0)
         
         
     }

@@ -42,8 +42,6 @@
 		178880121ECA40BE002D8D74 /* HousekeepingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177127451E7BA64A0006DB3C /* HousekeepingModel.swift */; };
 		178880131ECA40C0002D8D74 /* TemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177127471E7BA64A0006DB3C /* TemperatureModel.swift */; };
 		178880141ECA40C4002D8D74 /* CommDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9441EC24BAB00C6A2D7 /* CommDataModel.swift */; };
-		178880151ECA40CB002D8D74 /* TemperatureDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B249161E651261009C93DD /* TemperatureDataSet.swift */; };
-		178880161ECA40CE002D8D74 /* CommDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9421EC2384D00C6A2D7 /* CommDataSet.swift */; };
 		178880171ECA40D2002D8D74 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CE2D741E49394700542ED9 /* MainTabBarController.swift */; };
 		178880181ECA40D7002D8D74 /* GPSWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173160C91E4FB06200F54081 /* GPSWidget.swift */; };
 		178880191ECA40DA002D8D74 /* TempWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173160CD1E4FD6B700F54081 /* TempWidget.swift */; };
@@ -62,12 +60,9 @@
 		178880271ECA4118002D8D74 /* UNITE_logo_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 173A0B4B1E494B270098E453 /* UNITE_logo_red.png */; };
 		178880281ECA411B002D8D74 /* UNITE_logo_red_w_wordmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 173A0B4C1E494B270098E453 /* UNITE_logo_red_w_wordmark.png */; };
 		1788802B1ECA47EE002D8D74 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0B611E4959A40098E453 /* AppConfig.swift */; };
-		1788802E1ECA4BD2002D8D74 /* DateAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788802D1ECA4BD2002D8D74 /* DateAxisFormatter.swift */; };
-		1788802F1ECA4D94002D8D74 /* DateAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788802D1ECA4BD2002D8D74 /* DateAxisFormatter.swift */; };
 		17899D5C1F3A6CD0002F675B /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17899D5B1F3A6CD0002F675B /* AdminLoginViewController.swift */; };
 		17AD73FA1E9E84A80071410D /* WidgetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD73F91E9E84A80071410D /* WidgetConfig.swift */; };
 		17B0A9411EC1823600C6A2D7 /* DataCommViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9401EC1823600C6A2D7 /* DataCommViewController.swift */; };
-		17B0A9431EC2384D00C6A2D7 /* CommDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9421EC2384D00C6A2D7 /* CommDataSet.swift */; };
 		17B0A9451EC24BAB00C6A2D7 /* CommDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9441EC24BAB00C6A2D7 /* CommDataModel.swift */; };
 		17B1BB911ECC9D9E0001BE8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B1BB901ECC9D9E0001BE8B /* AppDelegate.swift */; };
 		17B1BB981ECC9D9E0001BE8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B1BB961ECC9D9E0001BE8B /* Main.storyboard */; };
@@ -77,11 +72,7 @@
 		17B1BBBC1ECCA20D0001BE8B /* HousekeepingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177127451E7BA64A0006DB3C /* HousekeepingModel.swift */; };
 		17B1BBBD1ECCA2120001BE8B /* TemperatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177127471E7BA64A0006DB3C /* TemperatureModel.swift */; };
 		17B1BBBE1ECCA2150001BE8B /* CommDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9441EC24BAB00C6A2D7 /* CommDataModel.swift */; };
-		17B1BBBF1ECCA23C0001BE8B /* TemperatureDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B249161E651261009C93DD /* TemperatureDataSet.swift */; };
-		17B1BBC01ECCA23F0001BE8B /* CommDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0A9421EC2384D00C6A2D7 /* CommDataSet.swift */; };
-		17B1BBC11ECCA2430001BE8B /* DateAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788802D1ECA4BD2002D8D74 /* DateAxisFormatter.swift */; };
 		17B1BBC31ECCA25D0001BE8B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A0B611E4959A40098E453 /* AppConfig.swift */; };
-		17B249171E651261009C93DD /* TemperatureDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B249161E651261009C93DD /* TemperatureDataSet.swift */; };
 		17B63CAD1EA594D400B6EF02 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B63CA91EA594D400B6EF02 /* GPSViewController.swift */; };
 		17B63CAE1EA594D400B6EF02 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B63CAA1EA594D400B6EF02 /* HomeViewController.swift */; };
 		17B63CAF1EA594D400B6EF02 /* PowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B63CAB1EA594D400B6EF02 /* PowerViewController.swift */; };
@@ -216,11 +207,9 @@
 		178880031ECA3F5A002D8D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		178880061ECA3F62002D8D74 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		178880071ECA3F62002D8D74 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1788802D1ECA4BD2002D8D74 /* DateAxisFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateAxisFormatter.swift; path = ChartDataSets/DateAxisFormatter.swift; sourceTree = "<group>"; };
 		17899D5B1F3A6CD0002F675B /* AdminLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
 		17AD73F91E9E84A80071410D /* WidgetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetConfig.swift; sourceTree = "<group>"; };
 		17B0A9401EC1823600C6A2D7 /* DataCommViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataCommViewController.swift; path = ../../MainViewControllers/DataCommViewController.swift; sourceTree = "<group>"; };
-		17B0A9421EC2384D00C6A2D7 /* CommDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommDataSet.swift; sourceTree = "<group>"; };
 		17B0A9441EC24BAB00C6A2D7 /* CommDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommDataModel.swift; sourceTree = "<group>"; };
 		17B1BB8E1ECC9D9E0001BE8B /* UNITE Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UNITE Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B1BB901ECC9D9E0001BE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,7 +217,6 @@
 		17B1BB991ECC9D9E0001BE8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17B1BB9E1ECC9D9E0001BE8B /* UNITE DesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UNITE DesktopTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B1BBA91ECC9D9E0001BE8B /* UNITE DesktopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UNITE DesktopUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17B249161E651261009C93DD /* TemperatureDataSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TemperatureDataSet.swift; path = ChartDataSets/TemperatureDataSet.swift; sourceTree = "<group>"; };
 		17B63CA91EA594D400B6EF02 /* GPSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		17B63CAA1EA594D400B6EF02 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17B63CAB1EA594D400B6EF02 /* PowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerViewController.swift; sourceTree = "<group>"; };
@@ -454,16 +442,6 @@
 			path = "UNITE Desktop";
 			sourceTree = "<group>";
 		};
-		17B249151E651238009C93DD /* ChartDataFormats */ = {
-			isa = PBXGroup;
-			children = (
-				17B249161E651261009C93DD /* TemperatureDataSet.swift */,
-				17B0A9421EC2384D00C6A2D7 /* CommDataSet.swift */,
-				1788802D1ECA4BD2002D8D74 /* DateAxisFormatter.swift */,
-			);
-			name = ChartDataFormats;
-			sourceTree = "<group>";
-		};
 		17B63CA81EA594D300B6EF02 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,7 +617,6 @@
 				173A0B611E4959A40098E453 /* AppConfig.swift */,
 				17B63CA81EA594D300B6EF02 /* MainViewControllers */,
 				177127481E7BA64A0006DB3C /* RealmModel */,
-				17B249151E651238009C93DD /* ChartDataFormats */,
 				17CE2D731E49390F00542ED9 /* NavigationControllers */,
 				173160C81E4FB06200F54081 /* Widgets */,
 				17B63CB31EA5964300B6EF02 /* Misc Classes */,
@@ -869,7 +846,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Zack Snyder";
 				TargetAttributes = {
 					17887FCF1ECA3EC1002D8D74 = {
@@ -909,6 +886,7 @@
 					17CE2D3F1E48D4A600542ED9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = XJYG39CFBC;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					17CE2D551E48D4A600542ED9 = {
@@ -1229,9 +1207,7 @@
 				178880181ECA40D7002D8D74 /* GPSWidget.swift in Sources */,
 				1788801B1ECA40E1002D8D74 /* WidgetManagerViewController.swift in Sources */,
 				178880141ECA40C4002D8D74 /* CommDataModel.swift in Sources */,
-				1788802F1ECA4D94002D8D74 /* DateAxisFormatter.swift in Sources */,
 				1788800B1ECA40A6002D8D74 /* HomeViewController.swift in Sources */,
-				178880151ECA40CB002D8D74 /* TemperatureDataSet.swift in Sources */,
 				178880191ECA40DA002D8D74 /* TempWidget.swift in Sources */,
 				1788800C1ECA40AB002D8D74 /* PowerViewController.swift in Sources */,
 				1788800D1ECA40AE002D8D74 /* GPSViewController.swift in Sources */,
@@ -1246,7 +1222,6 @@
 				178880121ECA40BE002D8D74 /* HousekeepingModel.swift in Sources */,
 				1788801A1ECA40DD002D8D74 /* WidgetView.swift in Sources */,
 				1788801D1ECA40EC002D8D74 /* MapView.swift in Sources */,
-				178880161ECA40CE002D8D74 /* CommDataSet.swift in Sources */,
 				178880101ECA40B8002D8D74 /* RealmHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1274,16 +1249,13 @@
 				17F5B4FE1ECCF1F1009AD187 /* MainWindowController.swift in Sources */,
 				17F5B5321ECE017A009AD187 /* BacksplashView.swift in Sources */,
 				17B1BBC31ECCA25D0001BE8B /* AppConfig.swift in Sources */,
-				17B1BBC01ECCA23F0001BE8B /* CommDataSet.swift in Sources */,
 				1737BB271ECCD7EA002A2260 /* TemperatureViewController.swift in Sources */,
 				17B1BBBB1ECCA2090001BE8B /* GpsModel.swift in Sources */,
 				17B1BBBD1ECCA2120001BE8B /* TemperatureModel.swift in Sources */,
 				17F5B5361ECE046D009AD187 /* MainViewController.swift in Sources */,
-				17B1BBC11ECCA2430001BE8B /* DateAxisFormatter.swift in Sources */,
 				17B1BBBA1ECCA2030001BE8B /* RealmHandler.swift in Sources */,
 				17B1BB911ECC9D9E0001BE8B /* AppDelegate.swift in Sources */,
 				17F5B5341ECE0309009AD187 /* NavigationControllerDelegate.swift in Sources */,
-				17B1BBBF1ECCA23C0001BE8B /* TemperatureDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1310,10 +1282,8 @@
 				17B0A9451EC24BAB00C6A2D7 /* CommDataModel.swift in Sources */,
 				17B63CB01EA594D400B6EF02 /* TemperatureViewController.swift in Sources */,
 				176FF57A1EA6BB8C00902C90 /* SinWaveView.swift in Sources */,
-				1788802E1ECA4BD2002D8D74 /* DateAxisFormatter.swift in Sources */,
 				17B63CB21EA594E900B6EF02 /* WidgetManagerViewController.swift in Sources */,
 				173160CC1E4FD18C00F54081 /* WidgetView.swift in Sources */,
-				17B0A9431EC2384D00C6A2D7 /* CommDataSet.swift in Sources */,
 				1771274A1E7BA64A0006DB3C /* HousekeepingModel.swift in Sources */,
 				173A0B621E4959A40098E453 /* AppConfig.swift in Sources */,
 				17BDE97D1F3BF4D600E7DB84 /* AlertController.swift in Sources */,
@@ -1326,7 +1296,6 @@
 				17AD73FA1E9E84A80071410D /* WidgetConfig.swift in Sources */,
 				17899D5C1F3A6CD0002F675B /* AdminLoginViewController.swift in Sources */,
 				173160CE1E4FD6B700F54081 /* TempWidget.swift in Sources */,
-				17B249171E651261009C93DD /* TemperatureDataSet.swift in Sources */,
 				17CE2D751E49394700542ED9 /* MainTabBarController.swift in Sources */,
 				17B63CAD1EA594D400B6EF02 /* GPSViewController.swift in Sources */,
 				1771274C1E7BA64A0006DB3C /* TemperatureModel.swift in Sources */,
@@ -1667,7 +1636,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1675,7 +1646,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1719,7 +1694,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1727,7 +1704,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1774,7 +1755,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1798,7 +1780,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				RESOURCES_TARGETED_DEVICE_FAMILY = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
