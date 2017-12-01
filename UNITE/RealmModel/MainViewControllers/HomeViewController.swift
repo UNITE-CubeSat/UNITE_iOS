@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
     
     // MARK: Gesture Handling
     
-    func spaceLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func spaceLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to usispace
         switch tap.state {
@@ -102,7 +102,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
         }
     }
     
-    func serverLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func serverLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to usispace
         switch tap.state {
@@ -161,7 +161,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
         }
     }
     
-    func nslLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func nslLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to college
         switch tap.state {
@@ -224,7 +224,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
     
     }
     
-    func editButtonIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func editButtonIsTapped(tap: UILongPressGestureRecognizer) {
         
         switch tap.state {
         case .began:
@@ -359,7 +359,7 @@ class HomeViewController: UIViewController, UNITEVCProtocol {
         }
     }
 
-    func updateCountDownDisplays() {
+    @objc func updateCountDownDisplays() {
         
         var now = Date(timeIntervalSinceNow: 0.0)
         

@@ -11,10 +11,21 @@ import RealmSwift
 import MapKit
 
 final class GPS: Object {
-    dynamic var date = NSDate()
+    @objc dynamic var date = NSDate()
     
-    dynamic var latitude = ""
-    dynamic var longtitude = ""
-    dynamic var altitude = 0.0
-    dynamic var velocity = 0.0
+    @objc dynamic var latitude = ""
+    @objc dynamic var longtitude = ""
+    @objc dynamic var altitude = 0.0
+    
+    @objc dynamic var linearVelocity = 0.0
+    
+    // Position
+    @objc dynamic var xPosition: Double = 0.0
+    @objc dynamic var yPosition: Double = 0.0
+    @objc dynamic var zPosition: Double = 0.0
+    
+    // Velocity
+    @objc dynamic var xVelocity: Float = 0.0
+    @objc dynamic var yVelocity: Float = 0.0
+    @objc dynamic var zVelocity: Float = 0.0
 }

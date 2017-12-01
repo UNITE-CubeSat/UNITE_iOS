@@ -48,7 +48,7 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     
     // MARK: IBActions
     
-    func didTapPowerPanel(tap: UILongPressGestureRecognizer) {
+    @objc func didTapPowerPanel(tap: UILongPressGestureRecognizer) {
         
         switch tap.state {
         case .began:
@@ -211,9 +211,9 @@ class PowerViewController: UIViewController, UNITEVCProtocol {
     // Updates Average Labels
     func updateAverages() {
         
-        var avgLoPower = [Double]()
-        var avgPower = [Double]()
-        var avgHiPower = [Double]()
+        let avgLoPower = [Double]()
+        let avgPower = [Double]()
+        let avgHiPower = [Double]()
         
         
         if !avgLoPower.isEmpty {

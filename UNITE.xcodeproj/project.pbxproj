@@ -209,7 +209,7 @@
 		178880071ECA3F62002D8D74 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17899D5B1F3A6CD0002F675B /* AdminLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
 		17AD73F91E9E84A80071410D /* WidgetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetConfig.swift; sourceTree = "<group>"; };
-		17B0A9401EC1823600C6A2D7 /* DataCommViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataCommViewController.swift; path = ../../MainViewControllers/DataCommViewController.swift; sourceTree = "<group>"; };
+		17B0A9401EC1823600C6A2D7 /* DataCommViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCommViewController.swift; sourceTree = "<group>"; };
 		17B0A9441EC24BAB00C6A2D7 /* CommDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommDataModel.swift; sourceTree = "<group>"; };
 		17B1BB8E1ECC9D9E0001BE8B /* UNITE Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UNITE Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B1BB901ECC9D9E0001BE8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -452,8 +452,7 @@
 				17B63CAC1EA594D400B6EF02 /* TemperatureViewController.swift */,
 				17B0A9401EC1823600C6A2D7 /* DataCommViewController.swift */,
 			);
-			name = MainViewControllers;
-			path = RealmModel/MainViewControllers;
+			path = MainViewControllers;
 			sourceTree = "<group>";
 		};
 		17B63CB31EA5964300B6EF02 /* Misc Classes */ = {

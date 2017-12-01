@@ -11,12 +11,12 @@ import RealmSwift
 
 class CommData: Object {
     
-    dynamic var date = NSDate()
-    dynamic var isCommand = false
+    @objc dynamic var date = NSDate()
+    @objc dynamic var isCommand = false
     
-    dynamic var simplexDataUsed = 0.0
-    dynamic var duplexDownlinkDataUsed = 0.0
-    dynamic var duplexUplinkDataUsed = 0.0
+    @objc dynamic var simplexDataUsed = 0.0
+    @objc dynamic var duplexDownlinkDataUsed = 0.0
+    @objc dynamic var duplexUplinkDataUsed = 0.0
     
-    dynamic var totalDataUsed = 0.0
+    @objc dynamic var totalDataUsed = 0.0
 }

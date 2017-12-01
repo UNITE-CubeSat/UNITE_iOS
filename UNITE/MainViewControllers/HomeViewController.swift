@@ -10,10 +10,13 @@ import UIKit
 import ChameleonFramework
 import SafariServices
 import MapKit
+import RealmSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UNITEVCProtocol {
     
+    // MARK: Outlets
     @IBOutlet weak var stackScrollView: UIScrollView!
+    @IBOutlet weak var adminLoginBtn: UIButton!
     
     // Main Widget Stack
     @IBOutlet var widgetStack: UIStackView!
@@ -30,11 +33,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    var widgetList = [GPSWidget(), TempWidget()]
+    var widgetList = [WidgetView]() //[GPSWidget(), TempWidget()]
     
     // Countdown Widget
     @IBOutlet weak var countdownBackView: UIView!
 
+    @IBOutlet weak var countdownTitleLbl: UILabel!
+    
     @IBOutlet weak var daysCountLbl: UILabel!
     @IBOutlet weak var hoursCountLbl: UILabel!
     @IBOutlet weak var minutesCountLbl: UILabel!
@@ -48,16 +53,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var realmServerLinkView: UIView!
     @IBOutlet weak var nslConsoleLinkView: UIView!
     
-    // Temperature Widget
-    
-    // GPS Widget
     
     // Edit Button
     @IBOutlet weak var editButtonView: UIView!
     
     // MARK: Gesture Handling
     
-    func spaceLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func spaceLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to usispace
         switch tap.state {
@@ -78,6 +80,7 @@ class HomeViewController: UIViewController {
                 let touchIsInsideView = CGRect(origin: CGPoint.zero, size: view.bounds.size).contains(location)
                 
                 if touchIsInsideView {
+                    
                     let safari = SFSafariViewController(url: URL(string: "http://www.usispace.com")!)
                     if #available(iOS 10.0, *) {
                         safari.preferredControlTintColor = FlatWhite()
@@ -99,7 +102,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func serverLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func serverLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to usispace
         switch tap.state {
@@ -120,15 +123,32 @@ class HomeViewController: UIViewController {
                 let touchIsInsideView = CGRect(origin: CGPoint.zero, size: view.bounds.size).contains(location)
                 
                 if touchIsInsideView {
-                    let safari = SFSafariViewController(url: URL(string: "http://realm-server.usispace.com")!)
-                    if #available(iOS 10.0, *) {
-                        safari.preferredControlTintColor = FlatWhite()
-                        safari.preferredBarTintColor = FlatNavyBlueDark()
-                    } else {
-                        // Fallback on earlier versions
+                    
+                    // Check if admin user
+                    if let user = UNITERealm.user {
+                        
+                        if user.isAdmin {
+                            let safari = SFSafariViewController(url: URL(string: "http://realm-server.usispace.com")!)
+                            if #available(iOS 10.0, *) {
+                                safari.preferredControlTintColor = FlatWhite()
+                                safari.preferredBarTintColor = FlatNavyBlueDark()
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            
+                            present(safari, animated: true, completion: {})
+
+                        } else {
+                            
+                            // Show alert
+                            present(AlertController.create(title: "Cannot Open Link", message: "Must be an admin user to open this link", action: "Ok"), animated: true, completion: nil)
+                        }
+                        
+                        present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
                     }
                     
-                    present(safari, animated: true, completion: {})
+                    
+                    
                 }
             }
         case .cancelled:
@@ -141,7 +161,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func nslLinkIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func nslLinkIsTapped(tap: UILongPressGestureRecognizer) {
         
         // Link to college
         switch tap.state {
@@ -162,19 +182,34 @@ class HomeViewController: UIViewController {
                 let touchIsInsideView = CGRect(origin: CGPoint.zero, size: view.bounds.size).contains(location)
                 
                 if touchIsInsideView {
-                    let safari = SFSafariViewController(url: URL(string: "https://data2.nsldata.com/console")!)
-                    if #available(iOS 10.0, *) {
-                        safari.preferredControlTintColor = FlatWhite()
+                    
+                    if let user = UNITERealm.user {
+                        
+                        if user.isAdmin {
+                            let safari = SFSafariViewController(url: URL(string: "https://data2.nsldata.com/console")!)
+                            if #available(iOS 10.0, *) {
+                                safari.preferredControlTintColor = FlatWhite()
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            if #available(iOS 10.0, *) {
+                                safari.preferredBarTintColor = FlatNavyBlueDark()
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            
+                            present(safari, animated: true, completion: {})
+                            
+                        } else {
+                            
+                            present(AlertController.create(title: "Cannot Open Link", message: "Must be an admin user to open this link", action: "Ok"), animated: true, completion: nil)
+                        }
+                        
                     } else {
-                        // Fallback on earlier versions
-                    }
-                    if #available(iOS 10.0, *) {
-                        safari.preferredBarTintColor = FlatNavyBlueDark()
-                    } else {
-                        // Fallback on earlier versions
+                        
+                        present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
                     }
                     
-                    present(safari, animated: true, completion: {})
                 }
             }
             
@@ -189,7 +224,7 @@ class HomeViewController: UIViewController {
     
     }
     
-    func editButtonIsTapped(tap: UILongPressGestureRecognizer) {
+    @objc func editButtonIsTapped(tap: UILongPressGestureRecognizer) {
         
         switch tap.state {
         case .began:
@@ -214,6 +249,20 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func presentLoginVC(_ sender: UIButton) {
+        
+        if let user = UNITERealm.user {
+            if !user.isAdmin {
+                let adminVC = storyboard?.instantiateViewController(withIdentifier: "AdminLogin") as! AdminLoginViewController
+                present(adminVC, animated: true, completion: nil)
+            } else {
+                present(AlertController.create(title: "Already Admin", message: "You are already signed in as an admin user", action: "Ok"), animated: true, completion: nil)
+            }
+        } else {
+            present(AlertController.create(title: "Could not Connect", message: "You are not connected to the internet. Please check your connection and try again", action: "Dismiss"), animated: true, completion: nil)
+        }
+    }
+    
     // MARK: ViewController Load
     
     override func viewDidLoad() {
@@ -222,7 +271,7 @@ class HomeViewController: UIViewController {
         
         configureWidgets(for: widgetConfiguration.activeWidgetTypes)
         
-        setupGraphicalElements()
+        setupUI()
         setupGestureRecognizers()
         startCountDownTimer()
         
@@ -238,7 +287,7 @@ class HomeViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
+        return .allButUpsideDown
     }
     
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
@@ -265,9 +314,13 @@ class HomeViewController: UIViewController {
         editButtonView.addGestureRecognizer(editButtonTap)
     }
     
-    // MARK: Graphics Configuration
+    // MARK: Setup UI
     
-    func setupGraphicalElements() {
+    func setupUI() {
+        
+        adminLoginBtn.tintColor = UIColor.white
+        adminLoginBtn.setBackgroundImage(adminLoginBtn.currentBackgroundImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+        
         countdownBackView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
 
         usiSpaceLinkView.layer.cornerRadius = AppConfig.Graphics.CORNER_RADIUS
@@ -286,14 +339,27 @@ class HomeViewController: UIViewController {
         updateCountDownDisplays()
         updateProgressBar()
         
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+                
+                self.updateCountDownDisplays()
+            })
             
-            self.updateCountDownDisplays()
-            self.updateProgressBar()
-        })
+        } else {
+            // Fallback on earlier versions
+            
+            let timer = Timer(fireAt: Date(timeIntervalSinceNow: 1.0),
+                              interval: 1.0,
+                              target: self,
+                              selector: #selector(updateCountDownDisplays),
+                              userInfo: nil,
+                              repeats: true)
+            
+            RunLoop.main.add(timer, forMode: .defaultRunLoopMode)
+        }
     }
-    
-    func updateCountDownDisplays() {
+
+    @objc func updateCountDownDisplays() {
         
         var now = Date(timeIntervalSinceNow: 0.0)
         
@@ -313,6 +379,7 @@ class HomeViewController: UIViewController {
         minutesCountLbl.text = "\(minutesLeft)"
         secondsCountLbl.text = "\(secondsLeft)"
         
+        updateProgressBar()
     }
     
     func updateProgressBar() {

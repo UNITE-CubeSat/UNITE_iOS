@@ -9,14 +9,12 @@
 import Foundation
 import RealmSwift
 
-final class HKList: Object {
-    dynamic var date = NSDate()
+final class BatteryPack: Object {
+    @objc dynamic var id = ""
     
-    let batteryList = List<Battery>()
-}
-
-final class Battery: Object {
-    dynamic var id = ""
-    dynamic var date = NSDate()
-    dynamic var value = 0.0
+    @objc dynamic var charge = 0.0
+    @objc dynamic var current = 0.0
+    @objc dynamic var voltage = 0.0
+    
+    @objc dynamic var date = NSDate()
 }

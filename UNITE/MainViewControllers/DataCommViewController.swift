@@ -16,9 +16,9 @@ class DataCommViewController: UIViewController, UNITEVCProtocol {
     var token : NotificationToken!
     
     // MARK: Constants
-    let TOTAL_DOWNLINK : Double = 46980392.0
-    let SIMPLEX_DOWNLINK : Double = 862745.0
-    let DUPLEX_LINK : Double = 46117647.0
+    let TOTAL_DOWNLINK : Double = 400.0
+    let SIMPLEX_DOWNLINK : Double = 100.0
+    let DUPLEX_LINK : Double = 300.0
     
     let allowedLinkID = "Allowed"
     let usedLinkID = "Used"
@@ -48,13 +48,12 @@ class DataCommViewController: UIViewController, UNITEVCProtocol {
         setupUI()
         setupGestureRecognizers()
         setupRefreshToken()
+        setupCommGraphView()
 
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        setupCommGraphView()
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             transitionToiPadSizeClass(landscape: view.bounds.width > view.bounds.height,
@@ -130,6 +129,10 @@ class DataCommViewController: UIViewController, UNITEVCProtocol {
         
         // Graph View
         graphView.dataSource = self
+        graphView.shouldAdaptRange = true
+        graphView.shouldAnimateOnAdapt = true
+        graphView.shouldAnimateOnStartup = true
+        graphView.shouldRangeAlwaysStartAtZero = true
         graphView.addPlot(plot: allowedBarPlot)
         graphView.addPlot(plot: usedBarPlot)
         graphView.addPlot(plot: availableBarPlot)
@@ -289,7 +292,9 @@ extension DataCommViewController : ScrollableGraphViewDataSource {
     // Provide data points for plot
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
         
-        guard let recentDataComm = UNITERealm.activeRealm.objects(CommData.self).first else { return 0.0 }
+        guard let recentDataComm = try! Realm().objects(CommData.self).first else {
+            return 0.0
+        }
 
         switch plot.identifier {
             

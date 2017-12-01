@@ -9,15 +9,9 @@
 import Foundation
 import RealmSwift
 
-
-final class TemperatureSet: Object {
-    dynamic var date = NSDate()
-    var sensorList = List<Temperature>()
-}
-
 // One for each sensor
 final class Temperature: Object {
-    dynamic var id = ""
-    dynamic var date = NSDate()
-    dynamic var value = 0.0
+    @objc dynamic var id = ""
+    @objc dynamic var date = NSDate()
+    @objc dynamic var value = 0.0
 }
